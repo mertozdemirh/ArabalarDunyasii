@@ -1,14 +1,16 @@
 ﻿@model Araba
+
 @{
-    ViewData["Title"] = "Yeni Araba";
+    ViewData["Title"] = "Düzenle";
 }
 
-<h1>Yeni Araba</h1>
+<h1>Araba Düzenle</h1>
 
 <div asp-validation-summary="All" class="alert alert-danger"></div>
 
 
-<form method="post" asp-controller="Arabalar" asp-action="Yeni">
+<form method="post" asp-controller="Arabalar" asp-action="Duzenle">
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label asp-for="Model"></label>
         <input asp-for="Model" type="text" class="form-control" />
@@ -19,5 +21,5 @@
         <input asp-for="Yil" type="text" class="form-control" />
         <span asp-validation-for="Yil" class="form-text text-danger"></span>
     </div>
-    <button class="btn btn-primary">Ekle</button>
+    <button class="btn btn-primary">Kaydet</button>
 </form>

@@ -25,8 +25,16 @@
             <td>@item.Id</td>
             <td>@item.Model</td>
             <td>@item.Yil</td>
-            <td><a asp-controller="Arabalar" asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger"> <i class="fas fa-trash"></i> </a> </td>
-            
+            <td>
+                <a asp-controller="Arabalar" asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                </a>
+
+                <a asp-controller="Arabalar" asp-action="Duzenle" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                    <i class="fas fa-pen"></i>
+                </a>
+            </td>
+
         </tr>
         }
 

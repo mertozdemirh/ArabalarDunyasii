@@ -44,5 +44,24 @@ namespace ArabalarDunyasii.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        public IActionResult Duzenle(int id)
+        {
+            return View(db.Arabalar.Find(id));
+        }
+        
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Duzenle (Araba araba)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(araba);
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+            
+        }
     }
 }
