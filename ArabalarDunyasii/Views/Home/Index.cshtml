@@ -15,6 +15,7 @@
             <th>Id</th>
             <th>Model</th>
             <th>Yıl</th>
+            <th>İşlemler</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,8 @@
             <td>@item.Id</td>
             <td>@item.Model</td>
             <td>@item.Yil</td>
+            <td><a asp-controller="Arabalar" asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger"> <i class="fas fa-trash"></i> </a> </td>
+            
         </tr>
         }
 

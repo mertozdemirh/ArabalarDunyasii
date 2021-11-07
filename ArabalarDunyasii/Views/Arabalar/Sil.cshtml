@@ -1,0 +1,16 @@
+﻿@model Araba
+@{ 
+    ViewData["Title"] = "Araba Silme Onayı";
+}
+
+<h1>Silme Onayı</h1>
+
+<form asp-controller="Arabalar" asp-action="SilOnaylandi">
+    <input asp-for="Id" type="hidden"/>
+    <p>
+        "@Model.Model (@Model.Yil)" adlı araba silinecektir. Onaylıyor Musunuz?
+    </p>
+    <button class="btn btn-danger">Silmeyi Onayla</button>
+</form>
+
+<a asp-controller="Home" asp-action="Index">Vazgeçtim, beni arabalar listesine götür.</a>

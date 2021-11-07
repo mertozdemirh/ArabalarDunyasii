@@ -19,7 +19,7 @@ namespace ArabalarDunyasii.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Yeni(Araba araba)
         {
             if (ModelState.IsValid)
@@ -30,6 +30,19 @@ namespace ArabalarDunyasii.Controllers
             }
 
             return View();
+        }
+        
+        public IActionResult Sil(int id)
+        {
+            return View(db.Arabalar.Find(id));
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult SilOnaylandi(int id)
+        {
+            Araba araba = db.Arabalar.Find(id);
+            db.Remove(araba);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
